@@ -14,6 +14,7 @@
     "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
     "ng": "ng",
     "start": "ng serve --preserve-symlinks",
+    "local": "ng serve --preserve-symlinks --environment local",
     "build": "ng build --prod --aot --base-href /formio-angular-mdc/",
     "pages": "npm run build && gh-pages -d dist/ -r git@github.com:rhalff/formio-angular-mdc.git",
     "test": "ng test",
