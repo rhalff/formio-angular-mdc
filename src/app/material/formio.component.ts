@@ -8,7 +8,6 @@ import {
 } from '@angular/core'
 import {
   get,
-  flow,
   isString
 } from 'lodash'
 import * as FF from 'formiojs/form'
@@ -16,11 +15,9 @@ import * as FF from 'formiojs/form'
 const FormioForm = FF.default
 
 import materialComponents from './components/index'
-import { BaseComponent } from 'formiojs/lib/components/base/Base'
 
 import {
-  forceColumns,
-  findAndUpdateComponent
+  forceColumns
 } from './utils'
 
 import { FormioComponent } from 'angular-formio'
@@ -55,30 +52,7 @@ export class MaterialFormioComponent extends FormioComponent {
   }
 
   async setForm (form: any) {
-    form = flow(
-      forceColumns,
-      findAndUpdateComponent(
-        ({ key, type }) => key === 'bonus' && type === 'hidden',
-        (component) => ({
-          ...component,
-          type: 'textfield',
-          label: get(
-            component,
-            ['properties', 'description']
-          ) || component.label || component.key,
-          validate: {
-            required: true
-          }
-        })
-      ),
-      findAndUpdateComponent(
-        ({ key, type }) => type === 'phoneNumber',
-        (component) => ({
-          ...component,
-          inputMask: '(9999) 999999999'
-        })
-      )
-    )(form)
+    form = forceColumns(form)
 
     if (this.formio) {
       this.formio.form = form
