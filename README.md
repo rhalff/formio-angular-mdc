@@ -32,7 +32,7 @@ yarn install
 
 Change the appUrl in `environments/environment.ts` to your own form url:
 
-```
+```typescript
 export const environment = {
   production: false,
   appUrl: 'https://drptiyhiheyemsr.form.io/testapplication'
