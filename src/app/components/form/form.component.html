@@ -4,10 +4,9 @@
         *ngIf="errors.length"
       >
         <em>Please fix the following errors before submitting:</em>
-        <ul class="mdc-list">
+        <ul>
           <li
             *ngFor="let error of errors"
-            class="mdc-list-item"
           >{{error.message}}</li>
         </ul>
       </div>
