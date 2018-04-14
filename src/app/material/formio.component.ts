@@ -70,6 +70,13 @@ export class MaterialFormioComponent extends FormioComponent {
             required: true
           }
         })
+      ),
+      findAndUpdateComponent(
+        ({ key, type }) => type === 'phoneNumber',
+        (component) => ({
+          ...component,
+          inputMask: '(9999) 999999999'
+        })
       )
     )(form)
 
@@ -78,13 +85,6 @@ export class MaterialFormioComponent extends FormioComponent {
 
       return undefined
     }
-
-    await BaseComponent.requireLibrary(
-      'mdc',
-      'mdc',
-      'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js',
-      true
-    )
 
     this.formLoad.emit(form)
 
