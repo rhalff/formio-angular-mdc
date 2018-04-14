@@ -1,0 +1,25 @@
+$mdc-theme-primary: #2f2db0;
+$mdc-theme-secondary: #76ff03;
+$mdc-theme-background: #fff;
+
+@import "material_web";
+
+body {
+  background-image: url('../assets/background-min.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+label {
+  pointer-events: none;
+}
+
+.form-errors {
+  background: rgba(192, 192, 192, 0.13);
+  padding: 2em 2em 1em 2em;
+  color: red;
+}
+
+.mdc-text-field {
+  width: 100%
+}

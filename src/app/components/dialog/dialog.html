@@ -1,0 +1,17 @@
+<mdc-dialog (accept)="onClick()">
+    <mdc-dialog-header>
+        <mdc-dialog-header-title>
+           {{data.title}}
+        </mdc-dialog-header-title>
+    </mdc-dialog-header>
+    <mdc-dialog-body *ngIf="data.message">
+        {{data.message}}
+    </mdc-dialog-body>
+    <mdc-dialog-footer>
+        <button
+          mdc-dialog-button
+          [accept]="true"
+          [raised]="true"
+        >Ok</button>
+    </mdc-dialog-footer>
+</mdc-dialog>

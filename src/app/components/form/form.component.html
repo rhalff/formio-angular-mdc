@@ -1,0 +1,26 @@
+<section>
+  <div class="mdc-card">
+      <div class="form-errors mdc-theme--primary-light-bg"
+        *ngIf="errors.length"
+      >
+        <em>Please fix the following errors before submitting:</em>
+        <ul class="mdc-list">
+          <li
+            *ngFor="let error of errors"
+            class="mdc-list-item"
+          >{{error.message}}</li>
+        </ul>
+      </div>
+      <material-formio
+         *ngIf="src"
+         [ngClass]="{'loading': loader.loading}"
+         [src]="src"
+         (formLoad)="onFormLoad($event)"
+         (errorChange)="onFormError($event)"
+         (success)="onFormSuccess($event)"
+      ></material-formio>
+      <p *ngIf="!src">
+        Form is not configured.
+      </p>
+  </div>
+</section>
